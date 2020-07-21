@@ -1,0 +1,8 @@
+{
+	"role1": {
+		"name": "Admin"
+    },
+    "role2": {
+		"name": "Client"
+    }
+}

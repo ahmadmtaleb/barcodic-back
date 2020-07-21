@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,24 @@ class RoleController extends Controller
     */
     public function index()
     {
-        //
+        if(!Gate::allows('isAdmin')) {
+            return response()->json([
+                    'success' => false,
+                    'message' => 'Not Authorized.'
+                ], 403);
+        }            
+        $roles = Role::all();
+
+        if (!$roles) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, roles cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+             'success' => true,
+             'data' => $roles
+        ]);
     }
 
     /**
@@ -44,9 +62,26 @@ class RoleController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
     */
-    public function show(Role $role)
+    public function show($id)
     {
-        //
+        if(!Gate::allows('isAdmin')) {
+            return response()->json([
+                    'success' => false,
+                    'message' => 'Not Authorized.'
+                ], 403);
+        }            
+        $role = Role::find($id);
+        
+        if (!$role) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, role with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+                'success' => true,
+                'data' => $role
+        ]);
     }
 
     /**

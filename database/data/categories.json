@@ -1,0 +1,86 @@
+{
+	"category1": {
+        "english_name": "Beverages",
+        "arabic_name":"مشروبات"
+    },
+    "category2": {
+        "english_name": "Milk",
+        "arabic_name":"حليب"
+    },
+    "category3": {
+        "english_name": "Bread",
+        "arabic_name":"خبز"
+    },
+    "category4":{
+        "english_name":"Cereal",
+        "arabic_name":"كورن فلكس"
+    },
+    "category5": {
+        "english_name": "Tobacco",
+        "arabic_name":"دخان"
+    },
+    "category6": {
+        "english_name": "Ice Cream",
+        "arabic_name":"بوظة"
+    },
+    "category7": {
+        "english_name": "Bottled Water",
+        "arabic_name":"مياه معبئة"
+    },
+    "category8": {
+        "english_name": "Coffee/tea",
+        "arabic_name":"قهوة و شاي"
+    },
+    "category9": {
+        "english_name": "Tissue",
+        "arabic_name":"محارم"
+    },
+    "category10": {
+        "english_name": "Diapers",
+        "arabic_name":"حفاضات"
+    },
+    "category11": {
+        "english_name": "Household Cleaner",
+        "arabic_name":"مواد تنظيف"
+    },
+    "category12": {
+        "english_name": "Canned goods",
+        "arabic_name":"معلبات"
+    },
+    "category13": {
+        "english_name": "Toothpaste",
+        "arabic_name":"معجون أسنان"
+    },
+    "category14": {
+        "english_name": "Shampoo",
+        "arabic_name":"شامبو"
+    },
+    "category15": {
+        "english_name": "Deodorant",
+        "arabic_name":"ديودرون"
+    },
+    "category16": {
+        "english_name": "Charcoal",
+        "arabic_name":"فحم"
+    },
+    "category17": {
+        "english_name": "Beans/spices",
+        "arabic_name":"حبوب/بهارات"
+    },
+    "category18": {
+        "english_name": "Dairy",
+        "arabic_name":"ألبان/أجبان"
+    },
+    "category19": {
+        "english_name": "Candy",
+        "arabic_name":"سكاكر"
+    },
+    "category20": {
+        "english_name": "Chips",
+        "arabic_name":"بطاطا"
+    },
+    "category21":{
+        "english_name":"Frozen Foods",
+        "arabic_name":"مأكولات مثلجة"
+    }
+}

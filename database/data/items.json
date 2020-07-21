@@ -1,0 +1,18 @@
+{
+    "item1": {
+        "english_name": "Gauloises blue",
+        "arabic_name":"غولواز أزرق",
+        "barcode":"3663849700257",
+        "price":"6500",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item2": {
+        "english_name": "Sohat small",
+        "arabic_name":"صحة صغير",
+        "barcode":"5289000061814",
+        "price":"750",
+        "brand":"sohat",
+        "category_id":"7"
+    }
+}

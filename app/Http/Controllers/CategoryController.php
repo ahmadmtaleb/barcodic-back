@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryStoreRequest;
+use Illuminate\Support\Facades\Gate;
+
 
 class CategoryController extends Controller
 {
@@ -14,7 +17,18 @@ class CategoryController extends Controller
     */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        if (!$categories) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, categories cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+             'success' => true,
+             'data' => $categories
+        ]);
     }
 
     /**
@@ -33,9 +47,27 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(CategoryStoreRequest $request)
     {
-        //
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
+        $category = new Category();
+        $category->fill($request->all());
+       
+        if ($category->save())
+           return response()->json([
+              'success' => true,
+               'data' => $category
+        ]);
+    
+        return response()->json([
+            'success' => false,
+            'message' => 'Sorry, category could not be added.'
+        ], 500);
     }
 
     /**
@@ -44,9 +76,20 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
     */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $category = Category::find($id);
+
+        if (!$category) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, category with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+             'success' => true,
+             'data' => $category
+        ]);
     }
 
     /**
@@ -67,9 +110,34 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        if(!Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
+        $category = Category::find($id);
+
+        if (!$category) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, category with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+
+        $updated = $category->update($request->all());
+
+        if ($updated) {
+            return response()->json([
+                'success' => true
+            ]);
+        }
+        return response()->json([
+            'success' => false,
+            'message' => 'Sorry, category could not be updated.'
+        ], 500);
     }
 
     /**
@@ -80,6 +148,24 @@ class CategoryController extends Controller
     */
     public function destroy(Category $category)
     {
-        //
+        $category = Category::find($id);
+
+        if (!$category) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, category with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+
+        if ($category->delete()) {
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'category could not be deleted.'
+            ], 500);
+        }
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use Illuminate\Http\Request;
+use App\Http\Requests\ItemStoreRequest;
+use Illuminate\Support\Facades\Gate;
 
 class ItemController extends Controller
 {
@@ -14,7 +16,18 @@ class ItemController extends Controller
     */
     public function index()
     {
-        //
+        $items = Item::all();
+
+        if (!$items) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, items cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+             'success' => true,
+             'data' => $items
+        ]);
     }
 
     /**
@@ -35,7 +48,25 @@ class ItemController extends Controller
     */
     public function store(Request $request)
     {
-        //
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
+        $item = new Item();
+        $item->fill($request->all());
+       
+        if ($item->save())
+           return response()->json([
+              'success' => true,
+               'data' => $item
+        ]);
+    
+        return response()->json([
+            'success' => false,
+            'message' => 'Sorry, item could not be added.'
+        ], 500);
     }
 
     /**
@@ -44,9 +75,20 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
     */
-    public function show(Item $item)
+    public function show($id)
     {
-        //
+        $item = Item::find($id);
+
+        if (!$item) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, item with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+             'success' => true,
+             'data' => $item
+        ]);
     }
 
     /**
@@ -67,9 +109,34 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(Request $request, $id)
     {
-        //
+        if(!Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
+        $item = Item::find($id);
+
+        if (!$item) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, item with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+
+        $updated = $item->update($request->all());
+
+        if ($updated) {
+            return response()->json([
+                'success' => true
+            ]);
+        }
+        return response()->json([
+            'success' => false,
+            'message' => 'Sorry, item could not be updated.'
+        ], 500);
     }
 
     /**
@@ -80,6 +147,25 @@ class ItemController extends Controller
     */
     public function destroy(Item $item)
     {
-        //
+        $item = Item::find($id);
+
+        if (!$item) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, item with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+
+        if ($item->delete()) {
+            return response()->json([
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'item could not be deleted.'
+            ], 500);
+        }
+
     }
 }
