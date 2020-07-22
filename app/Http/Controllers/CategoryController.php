@@ -17,6 +17,12 @@ class CategoryController extends Controller
     */
     public function index()
     {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
         $categories = Category::all();
 
         if (!$categories) {
@@ -78,6 +84,12 @@ class CategoryController extends Controller
     */
     public function show($id)
     {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
         $category = Category::find($id);
 
         if (!$category) {
@@ -146,8 +158,14 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
     */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
         $category = Category::find($id);
 
         if (!$category) {

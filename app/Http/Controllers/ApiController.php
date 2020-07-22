@@ -7,6 +7,9 @@ use App\User;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\RegistrationFormRequest;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
+
 
 class ApiController extends Controller
 {
@@ -111,6 +114,34 @@ class ApiController extends Controller
                 'data' => $users
         ]);
     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+    */
+    public function show($id)
+    {
+        if(!Gate::allows('isAdmin')) {
+            return response()->json([
+                    'success' => false,
+                    'message' => 'Not Authorized.'
+                ], 403);
+        }       
+        $user = USer::find($id);
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, user with id ' . $id . ' cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+             'success' => true,
+             'data' => $user
+        ]);
+    }
+    
     public function update(Request $request, $id)
     {
         if(!Gate::allows('isAdmin')) {
@@ -128,7 +159,13 @@ class ApiController extends Controller
             ], 400);
         }
 
-        $updated = $user->update($request->all());
+        // $updated = $user->update($request->all());
+
+        $updated = $user->fill([
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'role_id' => $request->role_id
+        ])->save();
 
         if ($updated) {
             return response()->json([
@@ -169,7 +206,14 @@ class ApiController extends Controller
             ], 500);
         }
     }
-    public function checkUser(Request $request){
+    public function checkUser(Request $request)
+    {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
 
         $this->validate($request, [
             'token' => 'required'
@@ -196,7 +240,28 @@ class ApiController extends Controller
                 'message' => "Authentication error",
             ]);
         }
-
-        
+    }
+    public function getusersroles()
+    {
+        if(!Gate::allows('isAdmin')) {
+            return response()->json([
+                    'success' => false,
+                    'message' => 'Not Authorized.'
+                ], 403);
+        }
+        $result = User::join('roles', 'roles.id', '=', 'users.role_id')
+            ->select('users.id as user_id', 'users.username as user_username', 'roles.name as role_name')
+            ->get()
+            ->toArray();
+        if (!$result) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, information cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+            'success' => true,
+            'data' => $result
+        ]);
     }
 }

@@ -10,7 +10,7 @@ class Item extends Model
      * @var string
     */
     protected $table = 'items';
-    protected $fillable = ['english_name', 'arabic_name', 'barcode', 'price', 'category_id'];
+    protected $fillable = ['english_name', 'arabic_name', 'barcode', 'price', 'category_id', 'brand'];
 
     /**
      * @var array

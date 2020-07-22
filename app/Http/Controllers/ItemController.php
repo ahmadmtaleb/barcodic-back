@@ -16,6 +16,12 @@ class ItemController extends Controller
     */
     public function index()
     {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
         $items = Item::all();
 
         if (!$items) {
@@ -77,6 +83,12 @@ class ItemController extends Controller
     */
     public function show($id)
     {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
         $item = Item::find($id);
 
         if (!$item) {
@@ -145,8 +157,14 @@ class ItemController extends Controller
      * @param  \App\Item  $item
      * @return \Illuminate\Http\Response
     */
-    public function destroy(Item $item)
+    public function destroy($id)
     {
+        if(! Gate::allows('isAdmin')){
+            return response()->json([
+                'success' => false,
+                'message' => 'Not Authorized.'
+            ], 403);
+        }
         $item = Item::find($id);
 
         if (!$item) {
@@ -166,6 +184,25 @@ class ItemController extends Controller
                 'message' => 'item could not be deleted.'
             ], 500);
         }
+    }
 
+    /*
+    * getting info of item per its barcode 
+    *
+    */
+    public function getInfo($request)
+    {
+        $result = Item::where('barcode', '=', $request)->get();
+            
+        if (!$result) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, information cannot be found.'
+            ], 400);
+        }
+        return response()->json([
+            'success' => true,
+            'data' => $result
+        ]);
     }
 }
