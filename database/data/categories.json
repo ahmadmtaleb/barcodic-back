@@ -56,8 +56,8 @@
         "arabic_name":"شامبو"
     },
     "category15": {
-        "english_name": "Deodorant",
-        "arabic_name":"ديودرون"
+        "english_name": "Parfum",
+        "arabic_name":"عطورات"
     },
     "category16": {
         "english_name": "Charcoal",
@@ -82,5 +82,21 @@
     "category21":{
         "english_name":"Frozen Foods",
         "arabic_name":"مأكولات مثلجة"
+    },
+    "category22":{
+        "english_name":"Stationery",
+        "arabic_name":"قرطاسية"
+    },
+    "category23":{
+        "english_name":"Other",
+        "arabic_name":"مختلف"
+    },
+    "category24":{
+        "english_name":"Electronics",
+        "arabic_name":"الكترونيات"
+    },
+    "category25":{
+        "english_name":"Drugs",
+        "arabic_name":"دواء"
     }
 }

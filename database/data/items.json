@@ -14,5 +14,117 @@
         "price":"750",
         "brand":"sohat",
         "category_id":"7"
+    },
+    "item3": {
+        "english_name": "Killing Mate",
+        "arabic_name":"اقراص عقص",
+        "barcode":"6944349100165",
+        "price":"8,000",
+        "brand":"RHAKE",
+        "category_id":"23"
+    },
+    "item4": {
+        "english_name": "Cristal Medium Blue",
+        "arabic_name":"قلم كريستال ازرق",
+        "barcode":"3086123001060",
+        "price":"1,000",
+        "brand":"Bic",
+        "category_id":"22"
+    },
+    "item5": {
+        "english_name": "Textliner Orange",
+        "arabic_name":"ماركور برتقالي",
+        "barcode":"4005401548157",
+        "price":"2,000",
+        "brand":"Faber Castell",
+        "category_id":"22"
+    },
+    "item6": {
+        "english_name": "Textliner Green",
+        "arabic_name":"ماركور اخضر",
+        "barcode":"4005401548638",
+        "price":"2,500",
+        "brand":"Faber Castell",
+        "category_id":"22"
+    },
+    "item7": {
+        "english_name": "Refill pencil",
+        "arabic_name":"قلم رصاص تعبئة",
+        "barcode":"3154145599305",
+        "price":"3,500",
+        "brand":"Maped",
+        "category_id":"22"
+    },
+    "item8": {
+        "english_name": "Alcohol Small",
+        "arabic_name":"سبيرتو صغير",
+        "barcode":"5287000234320",
+        "price":"5,000",
+        "brand":"ELSADA",
+        "category_id":"11"
+    },
+    "item9": {
+        "english_name": "Alcohol Big",
+        "arabic_name":"سبيرتو كبير",
+        "barcode":"5287000234313",
+        "price":"12,000",
+        "brand":"ELSADA",
+        "category_id":"11"
+    },
+    "item10": {
+        "english_name": "Light Bulb 40W",
+        "arabic_name":"لمبة 40 شمعة",
+        "barcode":"9004100472416",
+        "price":"1,500",
+        "brand":"Jaber",
+        "category_id":"23"
+    },
+    "item11": {
+        "english_name": "Malizia Uomo gold",
+        "arabic_name":"ماليزيا ذهبي",
+        "barcode":"8003510023943",
+        "price":"18,000",
+        "brand":"Malizia",
+        "category_id":"15"
+    },
+    "item12": {
+        "english_name": "ٍSpeed Stick Gel blue",
+        "arabic_name":"سبيد ستيك جل ازرق",
+        "barcode":"022200956048",
+        "price":"16,500",
+        "brand":"Speed Stick",
+        "category_id":"15"
+    },
+    "item13": {
+        "english_name": "Chewing Gum Mentos ice",
+        "arabic_name":"علكة منتوس ايس",
+        "barcode":"8935001705444",
+        "price":"2,000",
+        "brand":"Mentos",
+        "category_id":"19"
+    },
+    "item14": {
+        "english_name": "Lacalut Mouthwash",
+        "arabic_name":"لاكلوت غسول",
+        "barcode":"4016369546505",
+        "price":"21,000",
+        "brand":"LACALUT",
+        "category_id":"13"
+    },
+    "item15": {
+        "english_name": "Huawei Y7 2019",
+        "arabic_name":"هواوي برايم 2019",
+        "barcode":"6901443278879",
+        "price":"1,500,000",
+        "brand":"HUAWEI",
+        "category_id":"24"
+    },
+    "item16": {
+        "english_name": "ٍSolpadeine tablets",
+        "arabic_name":"سولبادين",
+        "barcode":"6091403211340",
+        "price":"6,320",
+        "brand":"ASPEN",
+        "category_id":"25"
     }
 }
