@@ -128,8 +128,8 @@
         "category_id":"25"
     },
     "item17": {
-        "english_name": "ٍNescafe Gold 200g",
-        "arabic_name":"نيسكلفي غولد 200غ",
+        "english_name": "ٍNescafe Gold 100g",
+        "arabic_name":"نيسكافي غولد 100غ",
         "barcode":"7616100030583",
         "price":"29,000",
         "brand":"Nestle",
@@ -170,7 +170,7 @@
     "item22": {
         "english_name": "ٍCedars soft silver",
         "arabic_name":"سيدرز طويل ورق فضي",
-        "barcode":"5287000107709",
+        "barcode":"5287000107945",
         "price":"3,250",
         "brand":"RLTT",
         "category_id":"5"
