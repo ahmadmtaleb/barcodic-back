@@ -3,7 +3,7 @@
         "english_name": "Gauloises blue",
         "arabic_name":"غولواز أزرق",
         "barcode":"3663849700257",
-        "price":"6500",
+        "price":"5,500",
         "brand":"RLTT",
         "category_id":"5"
     },
@@ -126,5 +126,93 @@
         "price":"6,320",
         "brand":"ASPEN",
         "category_id":"25"
+    },
+    "item17": {
+        "english_name": "ٍNescafe Gold 200g",
+        "arabic_name":"نيسكلفي غولد 200غ",
+        "barcode":"7616100030583",
+        "price":"29,000",
+        "brand":"Nestle",
+        "category_id":"8"
+    },
+    "item18": {
+        "english_name": "ٍGauloises red",
+        "arabic_name":"غولواز أحمر",
+        "barcode":"3663849700271",
+        "price":"5,500",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item19": {
+        "english_name": "ٍGauloises yellow",
+        "arabic_name":"غولواز أصفر",
+        "barcode":"3663849700295",
+        "price":"5,500",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item20": {
+        "english_name": "ٍCedars box blue",
+        "arabic_name":"سيدرز قصير كرتون كحلي",
+        "barcode":"5287000107952",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item21": {
+        "english_name": "ٍCedars box silver",
+        "arabic_name":"سيدرز قصير كرتون فضي",
+        "barcode":"5287000107969",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item22": {
+        "english_name": "ٍCedars soft silver",
+        "arabic_name":"سيدرز طويل ورق فضي",
+        "barcode":"5287000107709",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item23": {
+        "english_name": "ٍCedars soft blue",
+        "arabic_name":"سيدرز طويل ورق كحلي",
+        "barcode":"5287000107709",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item24": {
+        "english_name": "ٍCedars soft old",
+        "arabic_name":"سيدرز طويل ورق قديم",
+        "barcode":"5287000107013",
+        "price":"2,750",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item25": {
+        "english_name": "ٍCedars super slim blue",
+        "arabic_name":"سيدرز سليم كحلي",
+        "barcode":"5287000107730",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item26": {
+        "english_name": "ٍCedars super slim silver",
+        "arabic_name":"سيدرز سليم فضي",
+        "barcode":"5287000107723",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
+    },
+    "item27": {
+        "english_name": "ٍCedars super slim black",
+        "arabic_name":"سيدرز سليم أسود",
+        "barcode":"5287000107747",
+        "price":"3,250",
+        "brand":"RLTT",
+        "category_id":"5"
     }
 }
